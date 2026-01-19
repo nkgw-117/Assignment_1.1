@@ -1,6 +1,6 @@
 <html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<title>OR GATE</title>
+<title>NOT GATE</title>
 <head>
   <link rel="stylesheet" href="logicstyles.css">
 
@@ -17,9 +17,9 @@
         <div class="left-cell-text">
             
           <h2 class="center color kosugi-maru-regular">
-              <a href="AND.html"><button class="buttontxt" type="button">AND</button></a>
-              <button class="buttontxt disabled-button" type="button">OR</button>
-              <a href="NOT.html"><button class="buttontxt" type="button">NOT</button></a>
+              <a href="index.html"><button class="buttontxt" type="button">AND</button></a>
+              <a href="OR.html"><button class="buttontxt" type="button">OR</button></a>
+              <button class="buttontxt disabled-button" type="button">NOT</button>
               <a href="NAND.html"><button class="buttontxt" type="button">NAND</button></a>
               <a href="NOR.html"><button class="buttontxt" type="button">NOR</button></a>
           </h2>  
@@ -27,12 +27,12 @@
         </div>
         <div class="left-cell-text">
           <br><br>
-            <h1 class="center">-!You are currently Visualizing OR Gate!-</h1>
+            <h1 class="center">-!You are currently Visualizing NOT Gate!-</h1>
 
         </div>
         <div class="left-cell-text">
           <br>
-            <h3 class="center">The Output will be True when one/both of the inputs is True.</h3>
+            <h3 class="center">The Output will be True when the input is False.</h3>
 
             <div class="card-container">
               <div class="card">
@@ -42,23 +42,15 @@
                   <span class="slider round"></span>
                 </label>
               </div>
-                <br><br>
-              <div class="card">
-                <h3>INPUT B</h3>
-                <label class="switch">
-                  <input type="checkbox" id="inputB">
-                  <span class="slider round"></span>
-                </label>
-              </div>
             </div>
               <br><br><br>
           <div class="card-container">
               <div class="card-v2">
                 <h3>OUTPUT</h3>
-                  <div class="circle" id="light"></div>
+                  <div class="notcircle" id="light"></div>
                   <br><br>
                   <h2>
-                  <span id="output">False</span>.
+                  <span id="output">True</span>.
                   </h2>
               </div>
             </div>
@@ -73,28 +65,26 @@
   
       <script>
             var input1 = document.getElementById('inputA');
-            var input2 = document.getElementById('inputB');
 
             var outputtext = document.getElementById('output');
             var circle = document.getElementById('light');
 
-    input1.addEventListener('change', ORgate);
-    input2.addEventListener('change', ORgate);
+    input1.addEventListener('change', NOTgate);
+    input2.addEventListener('change', NOTgate);
     
-    function ORgate(){
-        if(input1.checked || input2.checked) {
+    function NOTgate(){
+        if(!input1.checked) {
             outputtext.innerHTML = "True";
             document.getElementById("light").style.backgroundColor = "yellow";
             document.getElementById("light").style.boxShadow = "0px 0px 20px yellow"
-            document.getElementById("light").style.transition = "all 0.25s"
         } else {
             outputtext.innerHTML = "False";
             document.getElementById("light").style.backgroundColor = "#555";
             document.getElementById("light").style.boxShadow = "0 0 0"
+            document.getElementById("light").style.transition = "all 0.25s"
         }
     };
       </script>
-
 
 </body>
 </html>
